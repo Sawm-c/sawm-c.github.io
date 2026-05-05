@@ -935,8 +935,8 @@
     }
 
     .project-bullets li {
-      display: flex;
-      gap: 12px;
+      position: relative;
+      padding-left: 18px;
       font-size: 13px;
       color: var(--muted);
       line-height: 1.72;
@@ -944,9 +944,10 @@
 
     .project-bullets li::before {
       content: '▸';
+      position: absolute;
+      left: 0;
+      top: 0;
       color: var(--cyan);
-      flex-shrink: 0;
-      margin-top: 2px;
     }
 
     .project-bullets li strong {
@@ -1138,8 +1139,8 @@
     }
 
     .exp-bullets li {
-      display: flex;
-      gap: 10px;
+      position: relative;
+      padding-left: 18px;
       font-size: 13px;
       color: var(--muted);
       line-height: 1.7;
@@ -1147,9 +1148,10 @@
 
     .exp-bullets li::before {
       content: '▸';
+      position: absolute;
+      left: 0;
+      top: 0;
       color: var(--green);
-      flex-shrink: 0;
-      margin-top: 2px;
     }
 
     .exp-bullets li strong {
@@ -1218,18 +1220,19 @@
     }
 
     .edu-highlight {
+      position: relative;
+      padding-left: 16px;
       font-size: 13px;
       color: var(--muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+      line-height: 1.6;
     }
 
     .edu-highlight::before {
       content: '▸';
+      position: absolute;
+      left: 0;
+      top: 0;
       color: var(--green);
-      flex-shrink: 0;
-      margin-top: 1px;
     }
 
     .edu-year {
@@ -1813,7 +1816,7 @@
                 <div class="project-name">WeatherForecast DevOps Platform</div>
                 <span class="featured-badge">★ FEATURED</span>
               </div>
-              <div class="project-type">// Full-Stack DevOps Project · 2024 – 2025</div>
+              <div class="project-type">// Full-Stack DevOps Project</div>
             </div>
             <div class="project-links">
               <a href="https://github.com/Sawm-c/WeatherForecast-devops-project" target="_blank" class="project-link">
@@ -1856,35 +1859,11 @@
           </p>
 
           <ul class="project-bullets">
-            <li>
-              <strong>Implemented containerized microservices architecture:</strong> Designed a three-tier application
-              (FastAPI backend · Vanilla JS frontend · PostgreSQL) using Docker &amp; Docker Compose, enabling
-              consistent, reproducible deployments across dev/staging/production environments.
-            </li>
-            <li>
-              <strong>Automated CI/CD pipeline end-to-end:</strong> Built with GitHub Actions — automated Flake8
-              linting, pytest unit testing, multi-stage Docker image build &amp; push to Docker Hub, and SSH-triggered
-              rolling deployment on AWS EC2. <strong>Reduced deployment time from ~20 minutes (manual) to under 2
-                minutes (fully automated)</strong>.
-            </li>
-            <li>
-              <strong>Provisioned Infrastructure as Code with Terraform:</strong> Declaratively managed all AWS
-              resources (EC2, Security Groups, Elastic IP, IAM roles) via Terraform — eliminating manual console
-              operations and enabling one-command <code
-                style="background:var(--cyan-dim);color:var(--cyan);padding:1px 5px;border-radius:3px;font-family:var(--mono);font-size:11px">terraform apply</code>
-              infrastructure provisioning and teardown.
-            </li>
-            <li>
-              <strong>Configured Nginx Reverse Proxy:</strong> Set up Nginx as the single ingress point — routing HTTP
-              traffic between the frontend static assets and FastAPI backend, with proper upstream proxy headers,
-              improving security by eliminating direct backend exposure.
-            </li>
-            <li>
-              <strong>Built automated weather email notification service:</strong> Implemented a scheduled Python cron
-              service integrating OpenWeatherMap API — delivering rich HTML weather reports (UV index, AQI, hourly
-              forecasts, health advisories) to registered users, with <strong>100% automated scheduling via
-                cron</strong>.
-            </li>
+            <li>Designed a three-tier application (FastAPI backend · Vanilla JS frontend · PostgreSQL) using <strong>Docker &amp; Docker Compose</strong>, enabling consistent, reproducible deployments across environments.</li>
+            <li>Built a <strong>GitHub Actions CI/CD pipeline</strong> — automated Flake8 linting, pytest unit testing, Docker image build &amp; push to Docker Hub, and SSH-triggered rolling deployment on AWS EC2. Reduced deployment time from ~20 minutes to under 2 minutes.</li>
+            <li>Declaratively managed all AWS resources (EC2, Security Groups, Elastic IP, IAM roles) via <strong>Terraform IaC</strong> — enabling one-command <code style="background:var(--cyan-dim);color:var(--cyan);padding:1px 5px;border-radius:3px;font-family:var(--mono);font-size:11px">terraform apply</code> provisioning and teardown.</li>
+            <li>Configured <strong>Nginx Reverse Proxy</strong> as the single ingress point routing HTTP traffic between the frontend and FastAPI backend, eliminating direct backend exposure.</li>
+            <li>Implemented a <strong>scheduled Python cron service</strong> integrating OpenWeatherMap API — delivering rich HTML weather reports (UV index, AQI, hourly forecasts) to registered users automatically.</li>
           </ul>
 
           <div class="project-stack">
@@ -1913,7 +1892,7 @@
               <div class="project-title-row">
                 <div class="project-name">Server Auto-Provisioning Pipeline</div>
               </div>
-              <div class="project-type">// Infrastructure Automation · 2024 – 2025</div>
+              <div class="project-type">// Infrastructure Automation</div>
             </div>
             <div class="project-links">
               <a href="https://github.com/Sawm-c/ansible-server-provisioning" target="_blank" class="project-link">
@@ -1947,21 +1926,9 @@
           </p>
 
           <ul class="project-bullets">
-            <li>
-              <strong>Provisioned Infrastructure as Code with Terraform:</strong> Declaratively managed AWS resources
-              (EC2, VPC, Security Groups) via Terraform, eliminating manual console operations and enabling
-              one-command infrastructure provisioning.
-            </li>
-            <li>
-              <strong>Automated Configuration Management with Ansible:</strong> Developed dynamic playbooks to
-              bootstrap newly provisioned EC2 instances on the fly — orchestrating the installation of Docker, Nginx,
-              and secure user environments without manual SSH intervention.
-            </li>
-            <li>
-              <strong>Integrated Zero-Touch CI/CD Pipeline:</strong> Built a GitHub Actions workflow that sequentially
-              executes Terraform and Ansible, achieving fully automated, zero-touch server deployments directly from
-              repository push events.
-            </li>
+            <li>Declaratively managed AWS resources (EC2, VPC, Security Groups) via <strong>Terraform IaC</strong>, eliminating manual console operations and enabling one-command infrastructure provisioning.</li>
+            <li>Developed dynamic <strong>Ansible playbooks</strong> to bootstrap newly provisioned EC2 instances — orchestrating installation of Docker, Nginx, and secure user environments without manual SSH intervention.</li>
+            <li>Built a <strong>GitHub Actions CI/CD workflow</strong> that sequentially executes Terraform and Ansible, achieving fully automated, zero-touch server deployments from repository push events.</li>
           </ul>
 
           <div class="project-stack">
@@ -1990,7 +1957,6 @@
           <div class="edu-icon">🎓</div>
           <div class="edu-school">University of Transport and Communications</div>
           <div class="edu-degree">Bachelor of Information Technology</div>
-          <div class="edu-location">// Hanoi, Vietnam · Specialization: Networks &amp; Cloud Computing</div>
           <div class="edu-highlights" style="margin-top:14px">
             <div class="edu-highlight">Relevant coursework: Computer Networks, Operating Systems (Linux), Database
               Management, Software Engineering, Network Security</div>
